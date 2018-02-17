@@ -12,8 +12,14 @@ class Board:
         for x in range(self._row):
             result += " |"
             for y in range(self._col):
-                result += self._board[x][y]
-            result += "| "
+                state = self._board[x][y]
+                if state == State.O:
+                    result += "O"
+                elif state == State.X:
+                    result += "X"
+                else:
+                    result += " "
+            result += "|\n"
         return result
 
     def add_cell(self, coords, state):
@@ -34,7 +40,12 @@ class Board:
         return result
 
     def whose_move(self):
-        # TODO Zliczamy ile jest X i O, a jak rowno to X i jeszcze sprawdzmy czy nie pelna
-        pass
-
-        # TODO implement IsWon
+        circle = 0
+        crose = 0
+        for i in self._board:
+            for s in i:
+                if s == State.O:
+                    circle += 1
+                elif s == State.X:
+                    crose += 1
+        return State.X if crose <= circle else State.O
