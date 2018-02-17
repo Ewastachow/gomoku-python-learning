@@ -1,2 +1,4 @@
-# gomoku-python-learning
-Gomoku for obtaining basic knowlage about python
+# Terminal Gomoku written in python
+Simple first python terminal app
+
+``wstawić instrukcje uruchomienia``
